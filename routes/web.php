@@ -14,14 +14,19 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
-  return Inertia::render('Welcome', ['foo' => 'bar',]);
+Route::get('/about', function () {
+  return Inertia::render('Welcome', ['foo' => 'about',]);
 });
 
 Route::get('/contact', function () {
   return Inertia::render('Welcome', ['foo' => 'Contact',]);
 });
 
-Route::get('/about', function () {
-  return Inertia::render('Welcome', ['foo' => 'About',]);
-});
+Route::get('/', function () {
+  $user = Auth::user();
+  return Inertia::render('Welcome', ['foo' => 'About', 'user' => $user]);
+})->middleware(['auth:sanctum', 'verified']);
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return Inertia::render('Dashboard');
+})->name('dashboard');
