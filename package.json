@@ -34,7 +34,9 @@
         "@inertiajs/inertia-vue": "^0.4.2",
         "@inertiajs/progress": "^0.2.2",
         "bootstrap": "^4.5.3",
+        "bootstrap-vue": "^2.20.1",
         "jquery": "^3.5.1",
+        "vee-validate": "^3.4.5",
         "vue": "^2.6.12"
     }
 }

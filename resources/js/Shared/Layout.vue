@@ -16,8 +16,10 @@
             <img src="storage/logo.svg" alt="Logo" style="width: 150px">
           </div>
         </div>
-        <div class="col h-100 bg-white">
+        <div class="col h-100 bg-white p-0">
+          <navbar-item />
 
+          <slot />
         </div>
       </div>
       <ul class="menu-bottom bg-primary text-white">
@@ -34,7 +36,8 @@
 
 <script>
   import LeftMenuItem from "../components/left-menu-item";
+  import NavbarItem from "../components/navbar-item";
   export default {
-    components: {LeftMenuItem}
+    components: {NavbarItem, LeftMenuItem},
   }
 </script>

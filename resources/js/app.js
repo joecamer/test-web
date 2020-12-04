@@ -1,26 +1,25 @@
-require('./bootstrap');
+import { App, plugin } from '@inertiajs/inertia-vue'
+import Vue from 'vue'
+import { InertiaProgress } from '@inertiajs/progress'
+import {NavbarPlugin} from 'bootstrap-vue'
+import {IconsPlugin} from 'bootstrap-vue'
 
-require('moment');
+const el = document.getElementById('app')
+Vue.use(plugin)
 
-import Vue from 'vue';
+// Bootstrap-vue Plugins injection
+Vue.use(IconsPlugin)
+Vue.use(NavbarPlugin)
 
-import { InertiaApp } from '@inertiajs/inertia-vue';
-import { InertiaForm } from 'laravel-jetstream';
-import PortalVue from 'portal-vue';
-
-Vue.mixin({ methods: { route } });
-Vue.use(InertiaApp);
-Vue.use(InertiaForm);
-Vue.use(PortalVue);
-
-const app = document.getElementById('app');
+InertiaProgress.init({
+  color: '#8b3fc1'
+})
 
 new Vue({
-    render: (h) =>
-        h(InertiaApp, {
-            props: {
-                initialPage: JSON.parse(app.dataset.page),
-                resolveComponent: (name) => require(`./Pages/${name}`).default,
-            },
-        }),
-}).$mount(app);
+  render: h => h(App, {
+    props: {
+      initialPage: JSON.parse(el.dataset.page),
+      resolveComponent: name => import(`./Pages/${name}`).then(module => module.default),
+    },
+  }),
+}).$mount(el)
