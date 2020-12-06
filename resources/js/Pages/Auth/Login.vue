@@ -72,13 +72,12 @@
     }),
     methods: {
       submit() {
-        axios.post('/login', {...this.user, _token: this.$page.props.csrf}).then(response => console.log(response))
+        axios.post('/login', {...this.user, _token: this.$page.props.csrf}).then(response => {
+          console.log(response)
+          window.location = '/'
+        })
           .catch(err => console.log(err))
       }
     }
   }
 </script>
-
-<style scoped>
-
-</style>

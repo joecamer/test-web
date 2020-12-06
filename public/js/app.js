@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "js/" + ({}[chunkId]||chunkId) + ".js?id=" + {"0":"689add1f220ca7fa93a4","1":"121ad49bb5d5bbf4a006","2":"00a38daea3dbd1f84973","3":"e7365582518717d479f3","4":"2c7ca237e6731ff13c79"}[chunkId] + ""
+/******/ 		return __webpack_require__.p + "js/" + ({}[chunkId]||chunkId) + ".js?id=" + {"0":"d61d9a0a7e407a921942","1":"121ad49bb5d5bbf4a006","2":"71c4fa8ed25e1e349fc1","3":"e7365582518717d479f3","4":"9bcaca879ff29828f132"}[chunkId] + ""
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -66243,13 +66243,13 @@ var map = {
 		"./resources/js/Pages/Auth/Register.vue",
 		1
 	],
-	"./Welcome": [
-		"./resources/js/Pages/Welcome.vue",
+	"./Dashboard": [
+		"./resources/js/Pages/Dashboard.vue",
 		0,
 		4
 	],
-	"./Welcome.vue": [
-		"./resources/js/Pages/Welcome.vue",
+	"./Dashboard.vue": [
+		"./resources/js/Pages/Dashboard.vue",
 		0,
 		4
 	]
@@ -66297,13 +66297,24 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
 var el = document.getElementById('app');
 vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(_inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_0__["plugin"]); // Bootstrap-vue Plugins injection
 
 vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(bootstrap_vue__WEBPACK_IMPORTED_MODULE_3__["IconsPlugin"]);
 vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(bootstrap_vue__WEBPACK_IMPORTED_MODULE_3__["NavbarPlugin"]);
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(bootstrap_vue__WEBPACK_IMPORTED_MODULE_3__["FormSelectPlugin"]);
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(bootstrap_vue__WEBPACK_IMPORTED_MODULE_3__["CalendarPlugin"]);
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(bootstrap_vue__WEBPACK_IMPORTED_MODULE_3__["ModalPlugin"]);
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(bootstrap_vue__WEBPACK_IMPORTED_MODULE_3__["ToastPlugin"]);
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(bootstrap_vue__WEBPACK_IMPORTED_MODULE_3__["SpinnerPlugin"]);
 _inertiajs_progress__WEBPACK_IMPORTED_MODULE_2__["InertiaProgress"].init({
-  color: '#8b3fc1'
+  color: '#8b3fc1',
+  showSpinner: true
 });
 new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
   render: function render(h) {

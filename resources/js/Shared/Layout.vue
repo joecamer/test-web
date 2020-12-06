@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="container-fluid bg-light vh-100 position-relative">
-      <div class="row h-100 flex-wrap-reverse flex-md-wrap main-frame">
-        <div class="col-lg-2 col-md-3 d-md-flex d-none p-0 bg-primary text-white flex-column justify-content-between h-100">
+    <div class="container-fluid bg-light min-vh-100 position-relative">
+      <div class="row main-frame">
+        <div class="col-lg-2 col-md-3 d-md-flex d-none p-0 bg-primary text-white flex-column justify-content-between">
           <ul class="menu-header">
             <li>
               <left-menu-item icon="menu-item-1.svg" to="room-reservation" label="reservation de salle"/>
@@ -16,18 +16,17 @@
             <img src="storage/logo.svg" alt="Logo" style="width: 150px">
           </div>
         </div>
-        <div class="col h-100 bg-white p-0">
+        <div class="col bg-white p-0" style="max-height: 100%">
           <navbar-item />
-
           <slot />
         </div>
       </div>
       <ul class="menu-bottom bg-primary text-white">
         <li>
-          <left-menu-item icon="menu-item-1.svg" to="room-reservation" label="reservation de salle"/>
+          <left-menu-item icon="menu-item-1.svg" to="/" label="reservation de salle"/>
         </li>
         <li>
-          <left-menu-item icon="menu-item-2.svg" to="room-reservation" label="reservation de place"/>
+          <left-menu-item icon="menu-item-2.svg" to="/" label="reservation de place"/>
         </li>
       </ul>
     </div>

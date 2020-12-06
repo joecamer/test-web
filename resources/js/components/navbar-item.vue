@@ -1,5 +1,5 @@
 <template>
-  <b-navbar sticky class="shadow-sm">
+  <b-navbar variant="primary" sticky class="shadow-sm" style="z-index: 2">
     <b-navbar-nav class="ml-auto align-items-center">
       <b-nav-item>
         <div class="bg-light rounded-pill p-2 pr-3 d-flex align-items-center">
@@ -8,7 +8,7 @@
         </div>
       </b-nav-item>
       <b-nav-item>
-        <inertia-link class="nav-link" href="/logout" method="post">
+        <inertia-link style="border: 0;background-color: transparent;" as="button" href="/logout" method="post">
           <div class="rounded-pill bg-danger p-2 text-white">
             <b-icon-power></b-icon-power>
             Deconnexion
@@ -24,7 +24,3 @@
     name: "navbar-item",
   }
 </script>
-
-<style scoped>
-
-</style>

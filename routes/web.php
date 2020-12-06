@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\NavigationController;
+use App\Http\Controllers\ReservationRepository;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -15,28 +17,13 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/about', function () {
-  return Inertia::render('Welcome', ['foo' => 'about',]);
-});
+Route::get('/', [NavigationController::class, 'index'])->middleware(['auth:sanctum', 'verified']);
+Route::get('/dashboard', [NavigationController::class, 'index'])->middleware(['auth:sanctum', 'verified']);
+Route::get('/login', [NavigationController::class, 'login'])->name('login');
+Route::get('/register', [NavigationController::class, 'register']);
+Route::get('/events', [ReservationRepository::class, 'eventsList']);
+Route::get('/events/search/{date}', [ReservationRepository::class, 'eventSearch']);
 
-Route::get('/contact', function () {
-  return Inertia::render('Welcome', ['foo' => 'Contact',]);
-});
+Route::post('/events/add', [ReservationRepository::class, 'addEvent'])->middleware(['auth:sanctum', 'verified']);
 
-Route::get('/', function () {
-  $user = Auth::user();
-  return Inertia::render('Welcome', ['foo' => 'About', 'user' => $user]);
-})->middleware(['auth:sanctum', 'verified']);
-
-Route::get('/dashboard', function () {
-  $user = Auth::user();
-  return Inertia::render('Welcome', ['foo' => 'About', 'user' => $user]);
-})->middleware(['auth:sanctum', 'verified']);
-
-Route::get('/login', function () {
-  return Inertia::render('Auth/Login');
-})->name('login');
-
-Route::get('/register', function () {
-  return Inertia::render('Auth/Register');
-});
+Route::delete('/events/{event}/delete', [ReservationRepository::class, 'deleteEvent'])->middleware(['auth:sanctum', 'verified']);
